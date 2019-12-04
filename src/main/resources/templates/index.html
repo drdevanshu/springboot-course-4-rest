@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Users System</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+	
+	    <br />
+	    
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Users System</a>
+				</div>
+				<ul class="nav navbar-nav">
+				    <li class="active"><a th:href="@{/index}">Index</a></li>
+					<li><a th:href="@{/listUsers}">List Users</a></li>
+					<li><a th:href="@{/inputUser}">Create User</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="jumbotron" style="text-align:center; background-color:#f8f8f8; border-color:#e7e7e7; ">
+			<h1>Users System</h1>
+		</div>
+	</div>
+
+</body>
+</html>

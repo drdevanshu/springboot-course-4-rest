@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>User</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Users System</a>
+				</div>
+				<ul class="nav navbar-nav">
+				    <li><a th:href="@{/index}">Index</a></li>
+					<li class="active"><a th:href="@{/listUsers}">List Users</a></li>
+					<li><a th:href="@{/inputUser}">Create User</a></li>
+				</ul>
+			</div>
+		</nav>
+
+        <h3>Modify User</h3>
+        <br />
+        
+		<form th:action="@{/modifyUser}" method="post" >
+            <input type="hidden" name="id" th:value="${user.idUser}">
+
+			<div class="form-group">
+				<label for="id">Id</label>
+				<input type="text" class="form-control" id="id" name="id" th:value="${user.idUser}" disabled>
+			</div>
+			<div class="form-group">
+				<label for="first">First Name</label>
+				<input type="text" class="form-control" id="first" name="first" placeholder="Type in First Name" th:value="${user.firstName}" required>
+			</div>
+			<div class="form-group">
+				<label for="last">Last Name</label>
+				<input type="text" class="form-control" id="last" name="last" placeholder="Type in Last Name" th:value="${user.lastName}" required>
+			</div>
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" id="username" name="username" placeholder="Type in Username" th:value="${user.userName}" required>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Type in Password" required>
+			</div>
+			<div class="form-group">
+				<label for="nacimiento">Birthday (dd-mm-yyyy)</label>
+				<input type="text" class="form-control" id="birth" name="birth" placeholder="Type in Birthday" th:value="${#dates.format(user.birth, 'dd-MM-yyyy')}">
+			</div>
+			<br />
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+
+    </div>
+</body>
+</html>
