@@ -52,7 +52,7 @@ public class User implements Serializable {
 	private String username;
 
 	//bi-directional many-to-one association to UserRole
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", orphanRemoval=true)
 	private List<UserRole> userRoles;
 
 	public User() {
