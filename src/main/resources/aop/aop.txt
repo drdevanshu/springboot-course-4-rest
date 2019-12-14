@@ -1,7 +1,0 @@
-https://howtodoinjava.com/spring-boot2/logging/performance-logging-aspectj-aop/ 	 	
-https://dzone.com/articles/implementing-aop-with-spring-boot-and-aspectj
-https://www.javatpoint.com/spring-aop-tutorial
-https://www.javatpoint.com/spring-aop-aspectj-annotation-example
-https://www.baeldung.com/spring-aop
-https://www.javainuse.com/spring/spring-boot-aop
-https://www.javaguides.net/2019/05/spring-aop-aspectj-around-annotation-example.html

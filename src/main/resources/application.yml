@@ -22,7 +22,12 @@ spring:
   banner:
     charset: UTF-8
     location: classpath:/banner/busyQA.txt
-    
+
+# Jackson Settings
+
+  jackson:
+    date-format: "dd-MM-yyyy"
+        
 # Database Settings
 
   datasource:

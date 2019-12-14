@@ -1,37 +1,97 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Users System</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>User</title>
+	<style>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+label {
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+input, select {
+    margin: 2px;
+    width: 150px;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+h2 {
+    width: 50%;
+    margin: 2px;
+    text-align: center;
+    margin: 20px auto 20px auto;
+}
+
+div.container {
+    background-color: #F2F2F2;
+    width: 50%;
+    margin: 40px auto;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+	</style>
+
+<script src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        $("#query").click(function(event){
+
+          var id = $("#id").val();
+
+          $.ajax({
+              url: '/user/get/',
+              data: {
+                  id: id
+              },
+              type: 'GET',
+                  success: function(data) {
+                      $('#first').val(data.firstName);
+                      $('#last').val(data.lastName);
+                      $('#username').val(data.username);
+                      $('#birth').val(data.birth);
+                      $('#status').val(data.status);
+                  },
+                  error: function() {
+                      alert("Error while retrieving Data!!!");
+                  }
+              });
+          });
+       });
+</script>
+
 </head>
 <body>
+    <div class="container">
+        <form th:action="@{/user}" method="post">
 
-	<div class="container">
-	
-	    <br />
-	    
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Users System</a>
-				</div>
-				<ul class="nav navbar-nav">
-				    <li class="active"><a th:href="@{/index}">Index</a></li>
-					<li><a th:href="@{/listUsers}">List Users</a></li>
-					<li><a th:href="@{/inputUser}">Create User</a></li>
-				</ul>
-			</div>
-		</nav>
-		
-		<div class="jumbotron" style="text-align:center; background-color:#f8f8f8; border-color:#e7e7e7; ">
-			<h1>Users System</h1>
-		</div>
-	</div>
+            <label for="id">Id:</label>
+            <input type="text" id="id"><br>
 
+            <label for="first">First Name:</label>
+            <input type="text" id="first" disabled="disabled"><br>
+
+            <label for="last">Last Name:</label>
+            <input type="text" id="last" disabled="disabled"><br>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" disabled="disabled"><br>
+
+            <label for="birth">Birth:</label>
+            <input type="text" id="birth" disabled="disabled"><br>
+
+            <label for="status">Status:</label>
+            <input type="text" id="status" disabled="disabled"><br><br>
+
+            <input type="button" id="query" value="Get Data" style="width: 100px;">
+        </form>
+    </div>
 </body>
 </html>
