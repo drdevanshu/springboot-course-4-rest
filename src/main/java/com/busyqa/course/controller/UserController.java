@@ -28,7 +28,7 @@ public class UserController {
 	@GetMapping(value ={"/", "/index"})
 	public String index() {
 				
-		logger.debug("Show Index!!!");
+		//logger.debug("Show Index!!!");
 				
 		return "index";
 	}
@@ -38,14 +38,14 @@ public class UserController {
 
         List<User> users = this.userService.listUsers();
        
-        users.forEach(System.out::println);
+        users.forEach(u -> logger.debug(u.toString()));
        
         return new ModelAndView("listUsers","users",users);
     }	
 	
 	@GetMapping(value = "/inputUser")
 	public String inputUser(){
-		logger.debug("Show Input User!!!");
+		//logger.debug("Show Input User!!!");
 		
         return "inputUser";
     }	
@@ -53,7 +53,7 @@ public class UserController {
 	@PostMapping(value = "/createUser")
     public String createUser(HttpServletRequest request) throws ParseException {
 
-		logger.debug("Creating User!!!");
+		//logger.debug("Creating User!!!");
 		
         String firstName = request.getParameter("first");
         String lastName = request.getParameter("last");
@@ -69,7 +69,7 @@ public class UserController {
 	@GetMapping(value = "/showUser")
     public ModelAndView showUser(@RequestParam("id") int id) {
 
-		logger.debug("Show User!!!");
+		//logger.debug("Show User!!!");
 		
         User user = this.userService.findUser(id);
 
@@ -79,7 +79,7 @@ public class UserController {
 	@PostMapping(value = "/updateUser")
     public String updateUser(HttpServletRequest request) throws ParseException {
        
-		logger.debug("Updating User!!!");
+		//logger.debug("Updating User!!!");
 		
         String idUser = request.getParameter("id");
         String firstName = request.getParameter("first");
